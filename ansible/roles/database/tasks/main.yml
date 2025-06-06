@@ -1,0 +1,14 @@
+- name: Run Postgresql container
+  docker_container:
+    name: db
+    image: yanishcn/tp-devops-db:latest
+    #image: postgres:17.2-alpine:latest
+    restart_policy: always
+    env:
+      POSTGRES_DB: db
+      POSTGRES_USER: usr
+      POSTGRES_PASSWORD: pwd
+    ports:
+      - "8090:8080"
+    networks:
+      - name: my-net

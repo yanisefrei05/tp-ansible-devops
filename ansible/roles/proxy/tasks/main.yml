@@ -1,0 +1,20 @@
+- name: Copy nginx config to server
+  copy:
+    src: files/default.conf
+    dest: /home/admin/default.conf
+    force: yes
+
+- name: Run NGINX reverse proxy container
+  docker_container:
+    name: proxy
+    image: yanishcn/tp-devops-httpd:latest
+    #image: nginx:latest
+    restart_policy: always
+    ports:
+      - "80:80"
+    networks:
+      - name: my-net
+
+
+
+

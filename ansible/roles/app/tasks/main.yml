@@ -1,0 +1,15 @@
+- name: Run application container
+  docker_container:
+    name: simple-api
+    image: yanishcn/tp-devops-simple-api:latest
+    #image: yanishcn/hello-api:latest
+    restart_policy: always
+    ports:
+      - "8082:8080"
+    networks:
+      - name: my-net
+    env:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/db
+      SPRING_DATASOURCE_USERNAME: usr
+      SPRING_DATASOURCE_PASSWORD: pwd
+
