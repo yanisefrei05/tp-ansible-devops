@@ -32,7 +32,7 @@ jobs:
 
   build-and-push-docker-image:
     needs: test-backend
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-24.04 
 
     steps:
       - name: Checkout code
