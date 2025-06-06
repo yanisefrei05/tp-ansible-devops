@@ -30,8 +30,14 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -H yanis-mehdi.hocine.takima.cloud >> ~/.ssh/known_hosts
 
+      - name: Debug root
+        run: |
+          pwd
+          ls -l
       - name: Run Ansible Playbook
         working-directory: ansible
         run: |
-          ls -l  # pour voir le contenu du dossier ansible
+          pwd
+          ls -l
           ansible-playbook -i inventories/setup.yml playbook.yml
+
