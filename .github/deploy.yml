@@ -12,8 +12,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -35,5 +33,5 @@ jobs:
       - name: Run Ansible Playbook
         working-directory: ansible
         run: |
+          ls -l  # pour voir le contenu du dossier ansible
           ansible-playbook -i inventories/setup.yml playbook.yml
-
