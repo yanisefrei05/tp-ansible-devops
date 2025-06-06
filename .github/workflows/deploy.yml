@@ -29,10 +29,10 @@ jobs:
           echo "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r' > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -H yanis-mehdi.hocine.takima.cloud >> ~/.ssh/known_hosts
-      - name: Debug root
+      - name: Test SSH Connection
         run: |
-          pwd
-          ls -l
+          ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no admin@yanis-mehdi.hocine.takima.cloud "echo ✅ Connexion SSH réussie"
+
       - name: Run Ansible Playbook
         working-directory: ansible
         run: |
