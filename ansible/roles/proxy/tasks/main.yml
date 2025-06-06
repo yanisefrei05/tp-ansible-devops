@@ -8,10 +8,10 @@
   docker_container:
     name: proxy
     image: yanishcn/tp-devops-httpd:latest
-    recreate : true
-    pull : true
     #image: nginx:latest
     restart_policy: always
+    recreate : true
+    pull : true
     ports:
       - "80:80"
     networks:
