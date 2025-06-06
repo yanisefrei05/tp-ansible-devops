@@ -4,6 +4,8 @@
     image: yanishcn/tp-devops-db:latest
     #image: postgres:17.2-alpine:latest
     restart_policy: always
+    recreate : true
+    pull : true
     env:
       POSTGRES_DB: db
       POSTGRES_USER: usr
