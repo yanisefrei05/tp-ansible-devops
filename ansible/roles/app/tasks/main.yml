@@ -3,6 +3,8 @@
     name: simple-api
     image: yanishcn/tp-devops-simple-api:latest
     #image: yanishcn/hello-api:latest
+    recreate : true
+    pull : true
     restart_policy: always
     ports:
       - "8082:8080"
