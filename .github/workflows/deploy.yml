@@ -30,6 +30,10 @@ jobs:
       - name: Test SSH Connection
         run: |
           ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no admin@yanis-mehdi.hocine.takima.cloud "echo ✅ Connexion SSH réussie"
+      - name: Vérification clé publique sur le serveur
+        run: |
+          PUB_KEY=$(ssh-keygen -y -f ~/.ssh/id_rsa)
+          ssh -i ~/.ssh/id_rsa admin@yanis-mehdi.hocine.takima.cloud "grep \"$PUB_KEY\" ~/.ssh/authorized_keys && echo '✅ Clé publique trouvée sur le serveur'"
 
       - name: Run Ansible Playbook
         working-directory: ansible
