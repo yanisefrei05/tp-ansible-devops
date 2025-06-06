@@ -35,9 +35,7 @@ jobs:
           pwd
           ls -l
       - name: Run Ansible Playbook
-        working-directory: ansible
         run: |
-          pwd
-          ls -l
-          ansible-playbook -i inventories/setup.yml playbook.yml
+          ansible-playbook -i ansible/inventories/setup.yml playbook.yml
+
 
